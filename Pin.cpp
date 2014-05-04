@@ -86,4 +86,16 @@ public:
   };
 };
 
+/**
+ * Режим реле
+ * Является коротким вариантом new Sensor(pin, true);
+ */
+class Relay : public DigitalOutput
+{
+public:
+   Relay(int pin) : DigitalOutput(pin, true)
+   {
+   };
+};
+
 
