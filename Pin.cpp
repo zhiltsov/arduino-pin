@@ -46,15 +46,10 @@ public:
   {
     pinMode(pin, INPUT);
   };
-
-  void pullupOn()
+  
+  Sensor(int pin, boolean pullup) : Pin(pin)
   {
-    digitalWrite(this->pin, HIGH);
-  };
-
-  void pullupOff()
-  {
-    digitalWrite(this->pin, LOW);
+    pinMode(pin, (pullup ? INPUT_PULLUP : INPUT));
   };
 };
 
