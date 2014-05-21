@@ -9,6 +9,8 @@ class Pin
 {
 protected:
   int pin;
+  boolean pinOn;
+  boolean event;
 
 public:
   Pin(int pin)
@@ -27,13 +29,21 @@ public:
 
   boolean isOn()
   {
-    return (boolean)digitalRead(this->pin);
+    boolean isOn = (boolean)digitalRead(this->pin);
+    this->event = isOn != this->pinOn;
+    
+    return this->pinOn = isOn;
   };
 
   boolean isOff()
   {
     return !this->isOn();
   };
+  
+  boolean isEvent()
+  {
+    return this->event; 
+  }
 };
 
 /**
